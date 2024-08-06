@@ -1,6 +1,6 @@
 <template>
 	<div class="mid-container">
-		<h1>mid</h1>
+		<form></form>
 	</div>
 </template>
 
@@ -10,4 +10,6 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+@import '@/assets/css/mid-container.scss';
+</style>

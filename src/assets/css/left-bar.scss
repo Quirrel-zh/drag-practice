@@ -1,0 +1,17 @@
+#left-bar {
+  padding: 0 10px;
+  width: 100px;
+  height: 100%;
+  background-color: #eee;
+
+  .left-bar-item {
+    text-align: left;
+    border: 1px solid $color-border;
+    margin-top: 10px;
+    font-size: $font-s;
+    color: $color-font;
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 5px;
+  }
+}
