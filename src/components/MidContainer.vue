@@ -1,6 +1,8 @@
 <template>
 	<div class="mid-container">
-		<form></form>
+		<form class="form">
+
+		</form>
 	</div>
 </template>
 
