@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="drag">
 		<left-bar />
 		<mid-container />
 		<right-info />
@@ -26,5 +26,5 @@ export default {
 </script>
 
 <style scoped>
-@import '@/assets/css/container.scss';
+@import '@/assets/css/drag.scss';
 </style>
