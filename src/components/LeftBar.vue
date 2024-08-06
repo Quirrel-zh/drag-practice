@@ -1,6 +1,6 @@
 <template>
 	<div id="left-bar">
-		<h1>left</h1>
+		<h1>left-11</h1>
 	</div>
 </template>
 
