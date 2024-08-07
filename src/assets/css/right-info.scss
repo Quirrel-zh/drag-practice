@@ -1,0 +1,40 @@
+.right-info {
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: #fff;
+  width: 226px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  .item-detail {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 30px;
+    //border-bottom: 1px solid $color-border;
+    //line-height: 30px;
+
+    p {
+      text-align: center;
+      //margin-right: ;
+      width: 30px;
+      font-size: $font-m;
+      //line-height: 30px;
+    }
+
+    input {
+      width: 150px;
+      height: 20px;
+      border: 1px solid $color-border;
+      border-radius: 3px;
+      padding: 5px;
+    }
+  }
+}
