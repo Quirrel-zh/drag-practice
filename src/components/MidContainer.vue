@@ -1,26 +1,26 @@
 <template>
 	<div class="mid-container">
 		<form class="form">
-			<div class="vertical_layout">
+			<div
+				class="vertical_layout"
+				@dragover.prevent
+				@drop="onDrop"
+			>
+				<div
+					v-for="item in drop_item"
+					:key="item.id"
+					:class="item.class"
+				>
+					{{ item.value }}
+				</div>
 				<div class="experience">
 					<div class="title">项目经验</div>
 					<div class="table">
 						<table class="experience-table">
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
+							<tr
+								v-for="i in 3"
+								:key="i"
+							>
 								<td></td>
 								<td></td>
 								<td></td>
@@ -90,6 +90,25 @@
 <script>
 export default {
 	name: 'MidContainer',
+	data() {
+		return {
+			form_item: [],
+			drop_item: [],
+		};
+	},
+	methods: {
+		onDrop(e) {
+			e.preventDefault();
+			e.dataTransfer.dropEffect = 'move';
+			let x = e.dataTransfer.getData('item');
+			this.drop_item.push(JSON.parse(x));
+			console.log(this.drop_item);
+			// console.log(data);
+			// const div = document.createElement('div'); // 创建一个div
+			// div.innerHTML = data; // 将拖拽的元素的outerHTML赋值给div
+			// e.target.appendChild(div); // 将div插入到目标元素中
+		},
+	},
 };
 </script>
 
