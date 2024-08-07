@@ -4,6 +4,8 @@
 			class="left-bar-item"
 			v-for="item in form_item"
 			:key="item.id"
+			draggable="true"
+			@dragstart="onDragStart(item, $event)"
 		>
 			<div class="text">
 				<p>{{ item.name }}</p>
@@ -13,47 +15,25 @@
 </template>
 
 <script>
+import { useComponentStore } from '@/stores/useComponentsStore.js';
+
 export default {
+	mounted() {
+		const store = useComponentStore();
+		const { form_item } = store;
+		this.form_item = form_item;
+	},
 	data() {
 		return {
-			form_item: [
-				{
-					id: '001',
-					components: 'horizontal_layout',
-					name: '水平布局',
-				},
-				{
-					id: '002',
-					components: 'vertical_layout',
-					name: '垂直布局',
-				},
-				{
-					id: '003',
-					components: 'single_line_input',
-					name: '单行输入',
-				},
-				{
-					id: '004',
-					components: 'multi_line_input',
-					name: '多行输入',
-				},
-				{
-					id: '005',
-					components: 'single_choice',
-					name: '单选',
-				},
-				{
-					id: '006',
-					components: 'multi_choice',
-					name: '多选',
-				},
-				{
-					id: '007',
-					components: 'dropdown',
-					name: '下拉',
-				},
-			],
+			form_item: [],
 		};
+	},
+	methods: {
+		onDragStart(item, e) {
+			console.log(item);
+			e.dataTransfer.setData('item', JSON.stringify(item));
+			e.dataTransfer.effectAllowed = 'move';
+		},
 	},
 };
 </script>

@@ -12,11 +12,6 @@ import MidContainer from '@/components/MidContainer.vue';
 import RightInfo from '@/components/RightInfo.vue';
 
 export default {
-	data() {
-		return {
-
-		};
-	},
 	components: {
 		RightInfo,
 		MidContainer,
