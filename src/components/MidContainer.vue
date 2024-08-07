@@ -83,7 +83,7 @@
 				</div>
 			</div>
 		</form>
-		<div class="btn">提交</div>
+		<div class="btn">提交123123</div>
 	</div>
 </template>
 
