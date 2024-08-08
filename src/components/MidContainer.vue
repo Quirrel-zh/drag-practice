@@ -1,18 +1,7 @@
 <template>
 	<div class="mid-container">
 		<form class="form">
-			<div
-				class="vertical_layout"
-				@dragover.prevent
-				@drop="onDrop"
-			>
-				<div
-					v-for="item in drop_item"
-					:key="item.id"
-					:class="item.class"
-				>
-					{{ item.value }}
-				</div>
+			<div class="vertical_layout">
 				<div class="experience">
 					<div class="title">项目经验</div>
 					<div class="table">
@@ -30,57 +19,38 @@
 						</table>
 					</div>
 				</div>
-				<div class="horizontal_layout">
-					<div class="single_line_input">
-						<label>用户名</label>
-						<input type="text" />
-					</div>
-					<div class="single_line_input">
-						<label>密码</label>
-						<input type="password" />
-					</div>
-				</div>
-				<div class="single_choice">
-					<label>性别-单选</label>
-					<div class="radio">
-						<input
-							type="radio"
-							name="gender"
-						/>男
-						<input
-							type="radio"
-							name="gender"
-						/>女
-					</div>
-				</div>
-				<div class="multi_choice">
-					<label>爱好-多选</label>
-					<div class="checkbox">
-						<input
-							type="checkbox"
-							name="篮球"
-						/>篮球
-						<input
-							type="checkbox"
-							name="足球"
-						/>足球
-					</div>
-				</div>
-				<div class="dropdown">
-					<label>城市-下拉</label>
-					<select>
-						<option value="北京">北京</option>
-						<option value="上海">上海</option>
-						<option value="广州">广州</option>
-						<option value="深圳">深圳</option>
-					</select>
-				</div>
-				<div class="vertical_layout">
-					<div class="multi_line_input">
-						<label>个人简介</label>
-						<textarea></textarea>
-					</div>
-				</div>
+
+				<component
+					v-for="item in formItem"
+					:key="item.id"
+					:is="item"
+					v-bind="item.props"
+				/>
+
+				<component
+					v-for="item in formSingeChoice"
+					:key="item.id"
+					:is="item.is"
+					v-bind="item.props"
+				/>
+				<component
+					v-for="item in formMultiChoice"
+					:key="item.id"
+					:is="item.is"
+					v-bind="item.props"
+				/>
+				<component
+					v-for="item in formDropDown"
+					:key="item.id"
+					:is="item.is"
+					v-bind="item.props"
+				/>
+				<component
+					v-for="item in formMultiLineInput"
+					:key="item.id"
+					:is="item.is"
+					v-bind="item.props"
+				/>
 			</div>
 		</form>
 		<div class="btn">提交</div>
@@ -88,27 +58,149 @@
 </template>
 
 <script>
+import SingleInput from '@/components/form/SingleInput.vue';
+import VerticalLayout from '@/components/form/VerticalLayout.vue';
+import SingleChoice from '@/components/form/SingleChoice.vue';
+import MultiChoice from '@/components/form/MultiChoice.vue';
+import DropDown from '@/components/form/DropDown.vue';
+import MultiLineInput from '@/components/form/MultiLineInput.vue'; // import { VueDraggable } from 'vue-draggable-plus';
+// import { VueDraggable } from 'vue-draggable-plus';
+
 export default {
 	name: 'MidContainer',
+	components: {
+		SingleInput,
+		SingleChoice,
+		MultiChoice,
+		DropDown,
+		VerticalLayout,
+		MultiLineInput,
+	},
 	data() {
 		return {
-			form_item: [],
-			drop_item: [],
+			formItem: [
+				{
+					id: '001',
+					is: 'SingleInput',
+					props: {
+						title: '用户名',
+						value: '',
+						place: '',
+					},
+				},
+				{
+					id: '002',
+					is: 'SingleInput',
+					props: {
+						title: '密码',
+						value: '',
+						place: '',
+					},
+				},
+				{
+					id: '003',
+					is: 'SingleChoice',
+					props: {
+						title: '性别-单选',
+						value: 'gender',
+						choice: ['男', '女'],
+					},
+				},
+				{
+					id: '004',
+					is: 'MultiChoice',
+					props: {
+						title: '爱好-多选',
+						value: 'hobby',
+						choice: ['篮球', '足球'],
+					},
+				},
+				{
+					id: '005',
+					is: 'DropDown',
+					props: {
+						title: '城市-下拉',
+						value: 'city',
+						choice: ['北京', '上海', '广州', '深圳'],
+					},
+				},
+				{
+					id: '006',
+					is: 'MultiLineInput',
+					props: {
+						title: '个人简介',
+						value: 'introduction',
+					},
+				},
+				{},
+			],
+			// formOneLineInput: [
+			// 	{
+			// 		id: '001',
+			// 		is: 'SingleInput',
+			// 		props: {
+			// 			title: '用户名',
+			// 			value: '',
+			// 			place: '',
+			// 		},
+			// 	},
+			// 	{
+			// 		id: '002',
+			// 		is: 'SingleInput',
+			// 		props: {
+			// 			title: '密码',
+			// 			value: '',
+			// 			place: '',
+			// 		},
+			// 	},
+			// ],
+			// formSingeChoice: [
+			// 	{
+			// 		id: '003',
+			// 		is: 'SingleChoice',
+			// 		props: {
+			// 			title: '性别-单选',
+			// 			value: 'gender',
+			// 			choice: ['男', '女'],
+			// 		},
+			// 	},
+			// ],
+			// formMultiChoice: [
+			// 	{
+			// 		id: '004',
+			// 		is: 'MultiChoice',
+			// 		props: {
+			// 			title: '爱好-多选',
+			// 			value: 'hobby',
+			// 			choice: ['篮球', '足球'],
+			// 		},
+			// 	},
+			// ],
+			// formDropDown: [
+			// 	{
+			// 		id: '005',
+			// 		is: 'DropDown',
+			// 		props: {
+			// 			title: '城市-下拉',
+			// 			value: 'city',
+			// 			choice: ['北京', '上海', '广州', '深圳'],
+			// 		},
+			// 	},
+			// ],
+			// formMultiLineInput: [
+			// 	{
+			// 		id: '006',
+			// 		is: 'MultiLineInput',
+			// 		props: {
+			// 			title: '个人简介',
+			// 			value: 'introduction',
+			// 		},
+			// 	},
+			// ],
+			// formVerticalLayout: [],
 		};
 	},
-	methods: {
-		onDrop(e) {
-			e.preventDefault();
-			e.dataTransfer.dropEffect = 'move';
-			let x = e.dataTransfer.getData('item');
-			this.drop_item.push(JSON.parse(x));
-			console.log(this.drop_item);
-			// console.log(data);
-			// const div = document.createElement('div'); // 创建一个div
-			// div.innerHTML = data; // 将拖拽的元素的outerHTML赋值给div
-			// e.target.appendChild(div); // 将div插入到目标元素中
-		},
-	},
+	methods: {},
 };
 </script>
 

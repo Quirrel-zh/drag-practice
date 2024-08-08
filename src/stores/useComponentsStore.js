@@ -8,8 +8,6 @@ export const useComponentStore = defineStore('components', {
 					id: '001',
 					components: 'horizontal_layout',
 					name: '水平布局',
-					class: 'horizontal_layout',
-					value: '',
 				},
 				{
 					id: '002',
