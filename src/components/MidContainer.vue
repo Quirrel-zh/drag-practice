@@ -19,7 +19,7 @@
 						</table>
 					</div>
 				</div>
-
+				<a href=""></a>
 				<component
 					v-for="item in formItem"
 					:key="item.id"
@@ -53,7 +53,7 @@
 				/>
 			</div>
 		</form>
-		<div class="btn">提交</div>
+		<div class="btn">提交123123</div>
 	</div>
 </template>
 
