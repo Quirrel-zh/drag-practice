@@ -14,7 +14,7 @@
 
 <script>
 import { useComponentStore } from '@/stores/useComponentsStore.js';
-
+// nihao
 export default {
 	mounted() {
 		const store = useComponentStore();
