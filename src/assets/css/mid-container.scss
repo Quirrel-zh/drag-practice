@@ -23,6 +23,8 @@
     //height: 100%;
     width: 100%;
     padding: 0 10px;
+    height: 100vh;
+
 
     .vertical_layout {
       cursor: default;
@@ -30,6 +32,7 @@
       width: 100%;
       background-color: $color-bg-light;
       border: 0.5px solid $color-border-blue;
+
 
       .experience {
         display: flex;
@@ -78,46 +81,15 @@
         cursor: move;
 
         display: flex;
-        justify-items: center;
+        justify-content: center;
         align-items: center;
         border: 0.5px solid $color-border-blue;
         //margin: 10px;
-        padding: 10px 0 10px 10px;
+        padding: 10px;
         min-height: 44px;
+        gap: 10px;
 
-        .single_line_input {
-          cursor: move;
-          display: flex;
-          justify-items: center;
-          align-items: center;
-          border: 1px solid $color-border;
-          border-radius: 5px;
-          padding: 10px;
-          height: 44px;
-          flex: 1;
-          margin-right: 10px;
 
-          label {
-            cursor: move;
-            width: 100px;
-            min-height: 44px;
-            //padding-right: 10px;
-            border-right: 1px solid $color-border;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-
-          input {
-            height: 24px;
-            width: 100%;
-            margin-left: 10px;
-            border: 1px solid $color-border;
-            border-radius: 2px;
-            outline: none;
-            //border-color: $color-border;
-          }
-        }
       }
 
       .single_choice {

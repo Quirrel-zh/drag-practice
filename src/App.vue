@@ -1,23 +1,11 @@
 <template>
 	<div class="drag">
-		<left-bar />
-		<mid-container />
-		<right-info />
+		<router-view></router-view>
 	</div>
 </template>
 
 <script>
-import LeftBar from '@/components/LeftBar.vue';
-import MidContainer from '@/components/MidContainer.vue';
-import RightInfo from '@/components/RightInfo.vue';
-
-export default {
-	components: {
-		RightInfo,
-		MidContainer,
-		LeftBar,
-	},
-};
+export default {};
 </script>
 
 <style scoped>

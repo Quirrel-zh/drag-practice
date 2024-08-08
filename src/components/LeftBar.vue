@@ -4,8 +4,6 @@
 			class="left-bar-item"
 			v-for="item in form_item"
 			:key="item.id"
-			draggable="true"
-			@dragstart="onDragStart(item, $event)"
 		>
 			<div class="text">
 				<p>{{ item.name }}</p>
@@ -28,13 +26,7 @@ export default {
 			form_item: [],
 		};
 	},
-	methods: {
-		onDragStart(item, e) {
-			console.log(item);
-			e.dataTransfer.setData('item', JSON.stringify(item));
-			e.dataTransfer.effectAllowed = 'move';
-		},
-	},
+	methods: {},
 };
 </script>
 
