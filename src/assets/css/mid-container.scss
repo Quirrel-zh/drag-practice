@@ -1,19 +1,19 @@
 .mid-container {
-  overflow: hidden;
-  //flex: 1;
-  //width: 100%;
+  //overflow: hidden;
   width: 0;
   height: 100%;
   padding: 10px;
   font-size: $font-m;
   color: $color-font-dark;
-  //position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 120px;
-  margin-right: 226px;
+
+  //margin-left: 120px;
+  //margin-right: 226px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 
   .form {
     display: flex;
@@ -23,7 +23,7 @@
     //height: 100%;
     width: 100%;
     padding: 0 10px;
-    height: 100vh;
+    //height: 100vh;
 
 
     .vertical_layout {
@@ -89,6 +89,39 @@
         min-height: 44px;
         gap: 10px;
 
+        .single_line_input {
+          cursor: move;
+          display: flex;
+          justify-items: center;
+          align-items: center;
+          border: 1px solid $color-border;
+          border-radius: 5px;
+          padding: 10px;
+          height: 44px;
+          flex: 1;
+          margin-right: 10px;
+
+          label {
+            cursor: move;
+            width: 100px;
+            min-height: 44px;
+            //padding-right: 10px;
+            border-right: 1px solid $color-border;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          input {
+            height: 24px;
+            width: 100%;
+            margin-left: 10px;
+            border: 1px solid $color-border;
+            border-radius: 2px;
+            outline: none;
+            //border-color: $color-border;
+          }
+        }
 
       }
 
