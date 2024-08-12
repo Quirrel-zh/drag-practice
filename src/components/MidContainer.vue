@@ -1,7 +1,7 @@
 <template>
 	<div class="mid-container">
 		<form class="form">
-			<VerticalLayout />
+			<VerticalLayout v-model="list" />
 		</form>
 		<div class="btn">提交</div>
 	</div>
@@ -16,7 +16,32 @@ export default {
 	components: { VueDraggable, VerticalLayout },
 	data() {
 		return {
-			list: [{}, {}, {}, {}, {}],
+			list: [
+				{
+					// 表格
+					id: '001',
+					name: 'experience',
+				},
+				{
+					// 水平布局
+					id: '002',
+					name: 'horizontal_layout',
+				},
+				{
+					// 单选
+					id: '003',
+					name: 'single_choice',
+				},
+				{
+					id: '004',
+					name: 'multi_choice',
+				},
+				{
+					id: '005',
+					name: 'vertical_layout',
+					children: [],
+				},
+			],
 		};
 	},
 };

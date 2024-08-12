@@ -82,7 +82,30 @@
 	</div>
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+import { computed } from 'vue';
+
+interface IList {
+	name: string;
+	children: IList[];
+}
+
+interface Props {
+	modelValue: IList[];
+}
+
+const props = defineProps<Props>();
+
+interface Emits {
+	(e: 'update:modelValue', value: IList[]): void;
+}
+
+const emits = defineEmits<Emits>();
+const list = computed({
+	get: () => props.modelValue,
+	set: (value) => emits('update:modelValue', value),
+});
+</script>
 
 <style scoped lang="scss">
 @import '@/assets/css/mid-container.scss';
