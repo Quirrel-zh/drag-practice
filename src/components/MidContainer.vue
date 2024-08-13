@@ -1,57 +1,117 @@
+<!-- MidContainer.vue -->
 <template>
 	<div class="mid-container">
 		<form class="form">
-			<VerticalLayout v-model="list" />
+			<component
+				:key="testData.id"
+				:is="testData.is"
+				v-model="testData.list"
+			/>
 		</form>
 		<div class="btn">提交</div>
 	</div>
 </template>
 
 <script>
-import { VueDraggable } from 'vue-draggable-plus';
 import VerticalLayout from '@/components/form/VerticalLayout.vue';
 
 export default {
 	name: 'MidContainer',
-	components: { VueDraggable, VerticalLayout },
+	components: {
+		VerticalLayout,
+	},
 	data() {
 		return {
-			list: [
-				{
-					// 表格
-					id: '001',
-					name: 'experience',
-				},
-				{
-					// 水平布局
-					id: '002',
-					name: 'horizontal_layout',
-				},
-				{
-					// 单选
-					id: '003',
-					name: 'single_choice',
-				},
-				{
-					id: '004',
-					name: 'multi_choice',
-				},
-				{
-					id: '005',
-					name: 'vertical_layout',
-					children: [],
-				},
-			],
+			testData: {
+				id: '0-1',
+				is: 'VerticalLayout',
+				type: 'container',
+				list: [
+					{
+						id: '1-1',
+						is: 'ExTable',
+						props: {
+							column: 3,
+							rows: 4,
+						},
+					},
+					{
+						id: '1-2',
+						is: 'HorizontalLayout',
+						type: 'container',
+						list: [
+							{
+								id: '1-2-1',
+								is: 'SingleInput',
+								props: {
+									title: '用户名',
+									value: '',
+									place: '',
+								},
+							},
+							{
+								id: '1-2-2',
+								is: 'SingleInput',
+								props: {
+									title: '密码',
+									value: '',
+									place: '',
+								},
+							},
+						],
+					},
+					{
+						id: '1-3',
+						is: 'SingleChoice',
+						props: {
+							title: '性别-单选',
+							value: 'gender',
+							choice: ['男', '女'],
+						},
+					},
+					{
+						id: '1-4',
+						is: 'MultiChoice',
+						props: {
+							title: '爱好-多选',
+							value: 'hobby',
+							choice: ['篮球', '足球'],
+						},
+					},
+					{
+						id: '1-5',
+						is: 'DropDown',
+						props: {
+							title: '城市-下拉',
+							value: 'city',
+							choice: ['北京', '上海', '广州', '深圳'],
+						},
+					},
+					{
+						id: '1-6',
+						is: 'VerticalLayout',
+						type: 'container',
+						props: {},
+						list: [
+							{
+								id: '1-6-1',
+								is: 'MultiLineInput',
+								props: {
+									title: '个人简介',
+									value: '',
+									place: '',
+								},
+							},
+						],
+					},
+				],
+			},
 		};
 	},
+	methods: {},
 };
 </script>
 
 <style scoped lang="scss">
 @import '@/assets/css/mid-container.scss';
-
-.ghost {
-	opacity: 0.5;
-	background: #c8ebfb;
-}
 </style>
