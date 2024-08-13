@@ -39,7 +39,7 @@ export default {
 	border-radius: 5px;
 	padding: 10px;
 	height: 44px;
-	flex: 1;
+	//flex: 1;
 	margin-right: 10px;
 
 	label {

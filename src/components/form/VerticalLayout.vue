@@ -3,28 +3,19 @@
 	<VueDraggable
 		class="vertical-layout"
 		tag="div"
-		:group="{ name: 'shared', pull: true, put: true }"
+		:group="{ name: 'shared', pull: true }"
+		direction="vertical"
 		ghostClass="holder_class"
 		v-model="list"
 		@change="handleListChange('listA')"
+		handle="label"
 	>
-		<template
+		<component
 			v-for="item in list"
 			:key="item.id"
-		>
-			<component
-				v-if="item.type === 'container'"
-				:is="item.is"
-				:key="item.id"
-				v-model="item.list"
-			/>
-
-			<component
-				v-else
-				:is="item.is"
-				v-model="item.props"
-			/>
-		</template>
+			:is="item.is"
+			v-model="item.children"
+		/>
 	</VueDraggable>
 </template>
 
@@ -57,14 +48,15 @@ export default {
 	watch: {
 		list: {
 			handler(val) {
-				this.$emit('update:modelValue', val);
+				this.$emit('update:model-value', val);
 			},
 			deep: true,
 		},
 	},
 	methods: {
-		handleListChange(list) {
-			console.log(`${list}移动了`);
+		handleListChange(listName) {
+			console.log(`${listName} 移动了`, this.list);
+			this.$emit('update:model-value', this.list);
 		},
 	},
 	mounted() {

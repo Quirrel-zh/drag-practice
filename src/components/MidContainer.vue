@@ -3,9 +3,8 @@
 	<div class="mid-container">
 		<form class="form">
 			<component
-				:key="testData.id"
 				:is="testData.is"
-				v-model="testData.list"
+				v-model="testData.children"
 			/>
 		</form>
 		<div class="btn">提交</div>
@@ -14,6 +13,7 @@
 
 <script>
 import VerticalLayout from '@/components/form/VerticalLayout.vue';
+import { useComponentStore } from '@/stores/useComponentsStore.js';
 
 export default {
 	name: 'MidContainer',
@@ -22,93 +22,15 @@ export default {
 	},
 	data() {
 		return {
-			testData: {
-				id: '0-1',
-				is: 'VerticalLayout',
-				type: 'container',
-				list: [
-					{
-						id: '1-1',
-						is: 'ExTable',
-						props: {
-							column: 3,
-							rows: 4,
-						},
-					},
-					{
-						id: '1-2',
-						is: 'HorizontalLayout',
-						type: 'container',
-						list: [
-							{
-								id: '1-2-1',
-								is: 'SingleInput',
-								props: {
-									title: '用户名',
-									value: '',
-									place: '',
-								},
-							},
-							{
-								id: '1-2-2',
-								is: 'SingleInput',
-								props: {
-									title: '密码',
-									value: '',
-									place: '',
-								},
-							},
-						],
-					},
-					{
-						id: '1-3',
-						is: 'SingleChoice',
-						props: {
-							title: '性别-单选',
-							value: 'gender',
-							choice: ['男', '女'],
-						},
-					},
-					{
-						id: '1-4',
-						is: 'MultiChoice',
-						props: {
-							title: '爱好-多选',
-							value: 'hobby',
-							choice: ['篮球', '足球'],
-						},
-					},
-					{
-						id: '1-5',
-						is: 'DropDown',
-						props: {
-							title: '城市-下拉',
-							value: 'city',
-							choice: ['北京', '上海', '广州', '深圳'],
-						},
-					},
-					{
-						id: '1-6',
-						is: 'VerticalLayout',
-						type: 'container',
-						props: {},
-						list: [
-							{
-								id: '1-6-1',
-								is: 'MultiLineInput',
-								props: {
-									title: '个人简介',
-									value: '',
-									place: '',
-								},
-							},
-						],
-					},
-				],
-			},
+			testData: {},
 		};
 	},
 	methods: {},
+	mounted() {
+		const store = useComponentStore();
+		const { testData } = store;
+		this.testData = testData;
+	},
 };
 </script>
 

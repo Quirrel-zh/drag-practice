@@ -3,14 +3,23 @@
 		<div class="title">项目经验</div>
 		<div class="table">
 			<table class="experience-table">
-				<tr
-					v-for="col in column"
-					:key="col"
-				>
-					<td
-						v-for="row in rows"
-						:key="row"
-					></td>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
 			</table>
 		</div>
@@ -23,11 +32,9 @@ export default {
 	props: {
 		column: {
 			type: Number,
-			default: 3,
 		},
 		rows: {
 			type: Number,
-			default: 4,
 		},
 	},
 };

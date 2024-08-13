@@ -8,12 +8,13 @@
 		direction="horizontal"
 		v-model="list"
 		@change="handleListChange('listB')"
+		handle="label"
 	>
 		<component
 			v-for="item in list"
 			:key="item.id"
 			:is="item.is"
-			v-bind="item.props"
+			v-bind="item"
 		/>
 	</VueDraggable>
 </template>
@@ -37,7 +38,7 @@ export default {
 	watch: {
 		list: {
 			handler(val) {
-				this.$emit('update:modelValue', val);
+				this.$emit('update:model-value', val);
 			},
 			deep: true,
 		},
@@ -56,7 +57,6 @@ export default {
 <style scoped lang="scss">
 .horizontal_layout {
 	cursor: move;
-
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -65,6 +65,10 @@ export default {
 	padding: 10px;
 	min-height: 44px;
 	gap: 10px;
+
+	> * {
+		flex: 1;
+	}
 }
 
 .holder_class {

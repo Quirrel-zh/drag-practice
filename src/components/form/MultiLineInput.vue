@@ -1,6 +1,6 @@
 <template>
 	<div class="multi_line_input">
-		<label>{{ title }}</label>
+		<label>个人简介</label>
 		<textarea :name="value"></textarea>
 	</div>
 </template>
@@ -11,7 +11,6 @@ export default {
 	props: {
 		title: {
 			type: String,
-			default: '个人简介',
 		},
 		value: {
 			type: String,
