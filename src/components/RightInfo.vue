@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import { useComponentStore } from '@/stores/useComponentsStore.js';
+
 export default {
 	name: 'RightInfo',
 	data() {
@@ -30,7 +32,13 @@ export default {
 					componentsId: '',
 				},
 			],
+			suggest: [],
 		};
+	},
+	mounted() {
+		const store = useComponentStore();
+		const { testData } = store;
+		this.suggest = testData.children;
 	},
 };
 </script>

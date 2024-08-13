@@ -3,7 +3,7 @@
 	<VueDraggable
 		class="vertical-layout"
 		tag="div"
-		:group="{ name: 'shared', pull: true }"
+		:group="{ name: 'shared', pull: true, put: true }"
 		direction="vertical"
 		ghostClass="holder_class"
 		v-model="list"
@@ -15,7 +15,25 @@
 			:key="item.id"
 			:is="item.is"
 			v-model="item.children"
+			:title="item.title"
+			@click="getValueClick"
 		/>
+		<!--				<template-->
+		<!--					v-for="item in list"-->
+		<!--					:key="item.id"-->
+		<!--				>-->
+		<!--					<component-->
+		<!--						v-if="item.type === 'container'"-->
+		<!--						:is="item.is"-->
+		<!--						v-model="item.children"-->
+		<!--					/>-->
+
+		<!--					<component-->
+		<!--						v-else-->
+		<!--						:is="item.is"-->
+		<!--						v-bind="item"-->
+		<!--					/>-->
+		<!--				</template>-->
 	</VueDraggable>
 </template>
 
@@ -58,6 +76,12 @@ export default {
 			console.log(`${listName} 移动了`, this.list);
 			this.$emit('update:model-value', this.list);
 		},
+		getValueClick(event) {
+			const targetElement = event.target;
+
+			console.log(targetElement.getAttribute('is')); // 获取 id 属性
+			// 你可以根据需要获取其他属性
+		},
 	},
 	mounted() {
 		this.list = this.modelValue;
@@ -78,7 +102,9 @@ export default {
 
 .holder_class {
 	width: 100%;
-	height: 40px;
+	height: min-content;
 	border: 1px dashed #eee;
+	opacity: 0.5;
+	background: $color-border-blue;
 }
 </style>

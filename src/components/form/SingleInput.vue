@@ -15,7 +15,7 @@ export default {
 	props: {
 		title: {
 			type: String,
-			default: '用户名',
+			// default: '用户名',
 		},
 		value: {
 			type: String,
@@ -23,7 +23,7 @@ export default {
 		},
 		place: {
 			type: String,
-			default: '请输入用户名',
+			// default: '请输入用户名',
 		},
 	},
 };
@@ -40,7 +40,7 @@ export default {
 	padding: 10px;
 	height: 44px;
 	//flex: 1;
-	margin-right: 10px;
+	margin: 10px 0;
 
 	label {
 		cursor: move;

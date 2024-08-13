@@ -62,7 +62,7 @@ export default {
 	align-items: center;
 	border: 0.5px solid $color-border-blue;
 	//margin: 10px;
-	padding: 10px;
+	padding: 0 10px;
 	min-height: 44px;
 	gap: 10px;
 
@@ -73,7 +73,9 @@ export default {
 
 .holder_class {
 	width: 100%;
-	height: 40px;
+	height: min-content;
 	border: 1px dashed #eee;
+	opacity: 0.5;
+	background: $color-border-blue;
 }
 </style>

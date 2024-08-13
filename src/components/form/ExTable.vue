@@ -1,6 +1,6 @@
 <template>
 	<div class="experience">
-		<div class="title">项目经验</div>
+		<label class="title">项目经验</label>
 		<div class="table">
 			<table class="experience-table">
 				<tr>

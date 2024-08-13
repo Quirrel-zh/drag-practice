@@ -60,7 +60,6 @@ export const useComponentStore = defineStore('components', {
 							{
 								id: nanoid(),
 								is: 'SingleInput',
-
 								title: '用户名',
 								value: '',
 								place: '',
@@ -68,7 +67,6 @@ export const useComponentStore = defineStore('components', {
 							{
 								id: nanoid(),
 								is: 'SingleInput',
-
 								title: '密码',
 								value: '',
 								place: '',
