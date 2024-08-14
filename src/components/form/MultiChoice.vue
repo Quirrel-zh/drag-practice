@@ -36,7 +36,7 @@ export default {
 
 <style scoped lang="scss">
 .multi_choice {
-	cursor: move;
+	//cursor: move;
 	display: flex;
 	justify-items: center;
 	align-items: center;

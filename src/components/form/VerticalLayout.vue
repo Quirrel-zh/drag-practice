@@ -8,6 +8,7 @@
 		ghostClass="holder_class"
 		v-model="list"
 		@change="handleListChange('listA')"
+		@add="handleAdd"
 		handle="label"
 	>
 		<component
@@ -34,6 +35,7 @@ import HorizontalLayout from '@/components/form/HorizontalLayout.vue';
 import { VueDraggable } from 'vue-draggable-plus';
 import { useComponentStore } from '@/stores/useComponentsStore.js';
 import { mapActions } from 'pinia';
+import { nanoid } from 'nanoid';
 
 export default {
 	name: 'VerticalLayout',
@@ -67,6 +69,15 @@ export default {
 			this.$emit('update:model-value', this.list);
 		},
 		...mapActions(useComponentStore, { getValueClick: 'getValueClick' }),
+		handleAdd(evt) {
+			const newItem = {
+				id: nanoid(15),
+				is: evt.item.dataset.components,
+				title: evt.item.dataset.title,
+			};
+			this.list.splice(evt.newIndex, 0, newItem);
+			console.log('添加了');
+		},
 	},
 	mounted() {
 		this.list = this.modelValue;

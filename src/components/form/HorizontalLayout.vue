@@ -23,6 +23,10 @@
 import SingleInput from '@/components/form/SingleInput.vue';
 import { VueDraggable } from 'vue-draggable-plus';
 import SingleChoice from '@/components/form/SingleChoice.vue';
+import MultiChoice from '@/components/form/MultiChoice.vue';
+import DropDown from '@/components/form/DropDown.vue';
+import MultiLineInput from '@/components/form/MultiLineInput.vue';
+import ExTable from '@/components/form/ExTable.vue';
 
 export default {
 	name: 'HorizontalLayout',
@@ -30,6 +34,10 @@ export default {
 		SingleInput,
 		VueDraggable,
 		SingleChoice,
+		MultiChoice,
+		DropDown,
+		MultiLineInput,
+		ExTable,
 	},
 	props: ['modelValue'],
 	data() {
