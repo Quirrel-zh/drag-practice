@@ -16,24 +16,10 @@
 			:is="item.is"
 			v-model="item.children"
 			:title="item.title"
-			@click="getValueClick"
+			:id="item.id"
+			:choice="item.choice"
+			@click="getValueClick(item.id, item.is, item.title)"
 		/>
-		<!--				<template-->
-		<!--					v-for="item in list"-->
-		<!--					:key="item.id"-->
-		<!--				>-->
-		<!--					<component-->
-		<!--						v-if="item.type === 'container'"-->
-		<!--						:is="item.is"-->
-		<!--						v-model="item.children"-->
-		<!--					/>-->
-
-		<!--					<component-->
-		<!--						v-else-->
-		<!--						:is="item.is"-->
-		<!--						v-bind="item"-->
-		<!--					/>-->
-		<!--				</template>-->
 	</VueDraggable>
 </template>
 
@@ -46,6 +32,8 @@ import MultiLineInput from '@/components/form/MultiLineInput.vue';
 import ExTable from '@/components/form/ExTable.vue';
 import HorizontalLayout from '@/components/form/HorizontalLayout.vue';
 import { VueDraggable } from 'vue-draggable-plus';
+import { useComponentStore } from '@/stores/useComponentsStore.js';
+import { mapActions } from 'pinia';
 
 export default {
 	name: 'VerticalLayout',
@@ -61,7 +49,9 @@ export default {
 	},
 	props: ['modelValue'],
 	data() {
-		return { list: [] };
+		return {
+			list: [],
+		};
 	},
 	watch: {
 		list: {
@@ -76,12 +66,7 @@ export default {
 			console.log(`${listName} 移动了`, this.list);
 			this.$emit('update:model-value', this.list);
 		},
-		getValueClick(event) {
-			const targetElement = event.target;
-
-			console.log(targetElement.getAttribute('is')); // 获取 id 属性
-			// 你可以根据需要获取其他属性
-		},
+		...mapActions(useComponentStore, { getValueClick: 'getValueClick' }),
 	},
 	mounted() {
 		this.list = this.modelValue;

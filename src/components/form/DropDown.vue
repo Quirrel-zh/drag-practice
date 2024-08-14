@@ -29,7 +29,11 @@ export default {
 			type: Array,
 			default: () => ['北京', '上海', '广州', '深圳'],
 		},
+		id: {
+			type: String,
+		},
 	},
+	methods: {},
 };
 </script>
 
