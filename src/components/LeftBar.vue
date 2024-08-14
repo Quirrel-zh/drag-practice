@@ -1,15 +1,24 @@
 <template>
-	<div id="left-bar">
+	<VueDraggable
+		id="left-bar"
+		:group="{ name: 'shared', pull: 'clone', put: false }"
+		v-model="form_item"
+		:sort="false"
+		ghost-class=".holder_class"
+	>
 		<div
 			class="left-bar-item"
 			v-for="item in form_item"
 			:key="item.id"
+			:data-id="item.id"
+			:data-components="item.components"
+			:data-title="item.title"
 		>
 			<div class="text">
 				<p>{{ item.name }}</p>
 			</div>
 		</div>
-	</div>
+	</VueDraggable>
 </template>
 
 <script>
@@ -34,4 +43,12 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/css/left-bar.scss';
+
+.holder_class {
+	width: 100%;
+	height: min-content;
+	border: 1px dashed #eee;
+	opacity: 0.5;
+	background: $color-border-blue;
+}
 </style>

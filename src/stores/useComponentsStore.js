@@ -6,39 +6,49 @@ export const useComponentStore = defineStore('components', {
 		return {
 			form_item: [
 				{
-					id: '001',
-					components: 'horizontal_layout',
+					id: nanoid(15),
+					components: 'HorizontalLayout',
 					name: '水平布局',
+					type: 'container',
+					title: '',
 				},
 				{
-					id: '002',
-					components: 'vertical_layout',
+					id: nanoid(15),
+					components: 'VerticalLayout',
 					name: '垂直布局',
+					type: 'container',
+					title: '',
 				},
 				{
-					id: '003',
-					components: 'single_line_input',
+					id: nanoid(15),
+					components: 'SingleInput',
 					name: '单行输入',
+					title: '单行',
 				},
 				{
-					id: '004',
-					components: 'multi_line_input',
+					id: nanoid(15),
+					components: 'MultiLineInput',
 					name: '多行输入',
+					title: '多行',
 				},
 				{
-					id: '005',
-					components: 'single_choice',
+					id: nanoid(15),
+					components: 'SingleChoice',
 					name: '单选',
+					title: '单选',
+					// choice: ['选项1', '选项2'],
 				},
 				{
-					id: '006',
-					components: 'multi_choice',
+					id: nanoid(15),
+					components: 'MultiChoice',
 					name: '多选',
+					title: '多选',
 				},
 				{
-					id: '007',
-					components: 'dropdown',
+					id: nanoid(15),
+					components: 'DropDown',
 					name: '下拉',
+					title: '下拉',
 				},
 			],
 			testData: {
@@ -86,7 +96,6 @@ export const useComponentStore = defineStore('components', {
 					{
 						id: nanoid(15),
 						is: 'MultiChoice',
-
 						title: '爱好-多选',
 						value: 'hobby',
 						choice: ['篮球', '足球'],

@@ -1,6 +1,6 @@
 <template>
 	<div class="multi_line_input">
-		<label>个人简介</label>
+		<label>{{ title }}</label>
 		<textarea :name="value"></textarea>
 	</div>
 </template>
