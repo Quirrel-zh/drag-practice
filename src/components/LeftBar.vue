@@ -14,8 +14,10 @@
 
 <script>
 import { useComponentStore } from '@/stores/useComponentsStore.js';
-// nihao
+import { VueDraggable } from 'vue-draggable-plus';
+
 export default {
+	components: { VueDraggable },
 	mounted() {
 		const store = useComponentStore();
 		const { form_item } = store;

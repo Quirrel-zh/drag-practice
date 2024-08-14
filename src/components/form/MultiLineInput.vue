@@ -1,9 +1,7 @@
 <template>
-	<div class="vertical_layout">
-		<div class="multi_line_input">
-			<label>{{ title }}</label>
-			<textarea :name="value"></textarea>
-		</div>
+	<div class="multi_line_input">
+		<label>个人简介</label>
+		<textarea :name="value"></textarea>
 	</div>
 </template>
 
@@ -13,7 +11,6 @@ export default {
 	props: {
 		title: {
 			type: String,
-			default: '个人简介',
 		},
 		value: {
 			type: String,

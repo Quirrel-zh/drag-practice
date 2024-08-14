@@ -6,12 +6,18 @@
 			:key="item.id"
 		>
 			<p>{{ item.id }}</p>
-			<input type="text" />
+			<input
+				type="text"
+				v-model="item.componentsId"
+				disabled="disabled"
+			/>
 		</div>
 	</div>
 </template>
 
 <script>
+import { useComponentStore } from '@/stores/useComponentsStore.js';
+
 export default {
 	name: 'RightInfo',
 	data() {
@@ -31,6 +37,22 @@ export default {
 				},
 			],
 		};
+	},
+	computed: {
+		componentsInfo() {
+			return useComponentStore().componentsInfo;
+		},
+	},
+	watch: {
+		componentsInfo: {
+			handler(newInfo) {
+				this.itemInfo[0].componentsId = newInfo.id;
+				this.itemInfo[1].componentsId = newInfo.components;
+				this.itemInfo[2].componentsId = newInfo.name;
+				console.log('Updated componentsInfo:', newInfo);
+			},
+			deep: true,
+		},
 	},
 };
 </script>

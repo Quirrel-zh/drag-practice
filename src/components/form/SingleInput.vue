@@ -1,14 +1,11 @@
 <template>
-	<div class="horizontal_layout">
-		<div class="single_line_input">
-			<label>{{ title }}</label>
-			<input
-				type="text"
-				:value="value"
-				@input="$emit('input', $event.target.value)"
-				:placeholder="place"
-			/>
-		</div>
+	<div class="single_line_input">
+		<label>{{ title }}</label>
+		<input
+			type="text"
+			:value="value"
+			:placeholder="place"
+		/>
 	</div>
 </template>
 
@@ -18,7 +15,7 @@ export default {
 	props: {
 		title: {
 			type: String,
-			default: '用户名',
+			// default: '用户名',
 		},
 		value: {
 			type: String,
@@ -26,7 +23,7 @@ export default {
 		},
 		place: {
 			type: String,
-			default: '请输入用户名',
+			// default: '请输入用户名',
 		},
 	},
 };
@@ -42,8 +39,8 @@ export default {
 	border-radius: 5px;
 	padding: 10px;
 	height: 44px;
-	flex: 1;
-	margin-right: 10px;
+	//flex: 1;
+	margin: 10px 0;
 
 	label {
 		cursor: move;

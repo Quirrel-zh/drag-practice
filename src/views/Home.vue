@@ -25,7 +25,8 @@ export default {
 .home {
 	position: relative;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-evenly;
+	overflow-y: auto;
 	width: 100vw;
 	height: 100vh;
 	background-color: $color-bg-dark;
